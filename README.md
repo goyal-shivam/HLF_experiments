@@ -1,0 +1,1 @@
+smartcontract1.go file is for Experiment 1, i.e. simulating the Automobile Manufacturing process from building doors, chassis, engine, transmission, to the final car.
