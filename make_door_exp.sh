@@ -10,17 +10,17 @@ export CORE_PEER_ADDRESS=localhost:7051
 
 i=1
 while [ "$i" -le 6 ]; do
-    # printf $i
-    # printf " - Next execution of MakeDoor Smart Contract\n"
+    printf $i
+    printf " - Next execution of MakeDoor Smart Contract\n"
 
     peer chaincode invoke -o localhost:7050 --ordererTLSHostnameOverride orderer.example.com --tls --cafile "${PWD}/organizations/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem" -C mychannel -n basic --peerAddresses localhost:7051 --tlsRootCertFiles "${PWD}/organizations/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt" --peerAddresses localhost:9051 --tlsRootCertFiles "${PWD}/organizations/peerOrganizations/org2.example.com/peers/peer0.org2.example.com/tls/ca.crt" -c '{"function":"MakeDoor","Args":["0.5", "1.0"]}'
 
     sleep 2.5
 
-    # printf "\n\nOutput of GetAllAssets - "
+    printf "\n\nOutput of GetAllAssets - "
 
-    # peer chaincode query -C mychannel -n basic -c '{"Args":["GetAllAssets"]}'
-    # printf "\nEnded this loop execution\n\n"
+    peer chaincode query -C mychannel -n basic -c '{"Args":["GetAllAssets"]}'
+    printf "\nEnded this loop execution\n\n"
     i=$(( i + 1 ))
 done 
 
